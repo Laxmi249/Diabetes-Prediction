@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Symptoms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/images/Back2.jpeg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .symptom {
+            background: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 15px 0;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px; /* Limit the width on larger screens */
+        }
+
+        .symptom h2 {
+            margin-top: 0;
+            color: #007bff; /* Color for symptom headings */
+            font-size: 1.5rem;
+        }
+
+        .symptom p {
+            margin: 5px 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .know-your-diet {
+            background: #e7f3ff; /* Light blue background for diet tips */
+            border-left: 5px solid #007bff; /* Left border for emphasis */
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-home a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .back-home a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .symptom {
+                width: 95%; /* Full width on smaller screens */
+            }
+
+            .back-home a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>What are the Symptoms of Type 2 Diabetes?</h1>
+    
+    <div class="symptom">
+        <h2><i class="fas fa-water"></i> Frequent Urination & Increased Thirst</h2>
+        <p>Frequent urination, especially at night, and increased thirst are common symptoms of diabetes. High glucose levels cause the kidneys to work harder to remove excess sugar, resulting in increased urine production. If you’re experiencing these symptoms, it’s crucial to get checked for diabetes.</p>
+        <div class="know-your-diet">
+            <h3>Know Your Diet</h3>
+            <p>Stay hydrated with water and avoid sugary drinks. Focus on a balanced diet with plenty of vegetables, whole grains, and lean proteins.</p>
+        </div>
+    </div>
+    
+    <div class="symptom">
+        <h2><i class="fas fa-battery-three-quarters"></i> Consistent Fatigue</h2>
+        <p>Persistent feelings of fatigue and weakness could signal diabetes. When your body can’t effectively use glucose for energy, you may feel tired constantly. Don’t ignore ongoing fatigue; it could be related to blood sugar issues.</p>
+        <div class="know-your-diet">
+            <h3>Know Your Diet</h3>
+            <p>Incorporate complex carbohydrates like brown rice and whole grains, and ensure you're eating enough fiber-rich foods such as fruits and vegetables.</p>
+        </div>
+    </div>
+    
+    <div class="symptom">
+        <h2><i class="fas fa-chart-line"></i> Unexplained Weight Loss</h2>
+        <p>Unintended weight loss, even with an increased appetite, can be a sign of diabetes. When the body can’t use glucose, it starts breaking down fat and muscle for energy. If you’re losing weight without trying, diabetes might be a cause.</p>
+        <div class="know-your-diet">
+            <h3>Know Your Diet</h3>
+            <p>Ensure you're consuming enough calories from healthy sources. Incorporate nuts, avocados, and lean meats into your meals for adequate energy.</p>
+        </div>
+    </div>
+    
+    <div class="symptom">
+        <h2><i class="fas fa-eye"></i> Vision Issues</h2>
+        <p>Blurred vision can result from high blood sugar damaging blood vessels in the eyes. If you experience this symptom, seek medical advice as it may indicate uncontrolled diabetes.</p>
+        <div class="know-your-diet">
+            <h3>Know Your Diet</h3>
+            <p>Include foods rich in antioxidants like leafy greens and berries to support eye health, and manage blood sugar levels.</p>
+        </div>
+    </div>
+    
+    <div class="symptom">
+        <h2><i class="fas fa-hand-paper"></i> Slow Healing Wounds</h2>
+        <p>High blood sugar can slow blood flow and collagen production, delaying wound healing. If cuts or bruises are slow to heal, check your blood sugar levels.</p>
+        <div class="know-your-diet">
+            <h3>Know Your Diet</h3>
+            <p>Consume vitamin C-rich foods like oranges and bell peppers to help with collagen production and wound healing.</p>
+        </div>
+    </div>
+    
+    <div class="symptom">
+        <h2><i class="fas fa-hands-helping"></i> Nerve Issues in Extremities</h2>
+        <p>Numbness or tingling in hands or feet can indicate nerve damage from high blood sugar. Don't ignore this symptom, as untreated diabetes can lead to complications.</p>
+        <div class="know-your-diet">
+            <h3>Know Your Diet</h3>
+            <p>Incorporate foods high in omega-3 fatty acids like fish and walnuts to support nerve health.</p>
+        </div>
+    </div>
+
+    <div class="back-home">
+        <a href="{{ url_for('index') }}">Back to Home</a>
+        <a href="{{ url_for('prevention') }}">Check Prevention</a> <!-- Link to Prevention page -->
+    </div>
+    
+</body>
+</html>

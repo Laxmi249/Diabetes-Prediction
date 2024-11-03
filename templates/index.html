@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/Back.png')}}'); background-size: cover; background-position: center;">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %} 
+     <!-- Sidebar for View Symptoms -->
+     <div class="sidebar">
+        <h2>Quick Links</h2>
+        <a href="{{ url_for('symptoms') }}">View Symptoms</a>
+    </div>
+    <header>
+        <img src="{{ url_for('static', filename='images/Dia_P.png') }}" alt="App Logo" class="logo"> 
+        <h1> Diabetes Prediction </h1>  
+        
+        <!-- Light/Dark Mode Toggle --->
+         <div id="modeToggle" class="mode-toggle" aria-label="Toggle dark/light mode">🌙</div>
+    
+         <section id="navigation" class="navigation-section">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#details">Details</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#help">Help</a></li>
+                </ul>
+            </nav>
+        </section>
+        
+    </header>
+
+    <div class="hero" style="background-image: url('{{ url_for('static', filename='images/Back.png') }}');">
+        <div class="hero-content">
+            <h1>Welcome to the Diabetes Prediction App</h1>
+            <p>We help you monitor your health.</p>
+        </div>
+    </div>
+
+    <script>
+        const tips = [
+            "Drink plenty of water throughout the day.",
+            "Incorporate more fiber-rich foods into your diet.",
+            "Engage in at least 30 minutes of moderate exercise most days.",
+            "Monitor your blood sugar levels regularly.",
+            "Avoid sugary drinks and snacks.",
+        ];
+
+        document.getElementById('get-tip').addEventListener('click', function() {
+            const randomTip = tips[Math.floor(Math.random() * tips.length)];
+            document.getElementById('health-tip').innerText = randomTip;
+        });
+    </script>
+    
+    <section id="details" class="details-section">
+        <h2 class="section-title">Details & Metrics</h2>
+        <ul>
+            <li><b>Pregnancies:</b> Number of times pregnant</li>
+            <li><b>Glucose:</b> Plasma glucose concentration after 2 hours in an oral glucose tolerance test</li>
+            <li><b>Blood Pressure:</b> Diastolic blood pressure (mm Hg)</li>
+            <li><b>Skin Thickness:</b> Triceps skin fold thickness (mm)</li>
+            <li><b>Insulin:</b> 2-Hour serum insulin (mu U/ml)</li>
+            <li><b>BMI:</b> Body Mass Index (weight in kg/(height in m)^2)</li>
+            <li><b>Diabetes Pedigree Function:</b> Score indicating likelihood of diabetes based on family history</li>
+            <li><b>Age:</b> Age in years</li>
+        </ul>
+    </section>
+
+    <section id="form-guide" class="step-guide-container">
+        <h2 class="step-guide">Step-by-Step Guide for Prediction</h2>
+        <ol class="guide-list">
+            <li>Fill in the details in the form below.</li>
+            <li>Click on the "Predict" button.</li>
+            <li>Your prediction result will be displayed on the screen.</li>
+        </ol>
+    </section>
+
+    <section id="form" class="details-form-container">
+        <h2 class="form-title">Enter Your Details</h2>
+        <form id="predictionForm" method="POST">
+            <div class="form-row">
+                <label for="Pregnancies">Pregnancies:</label>
+                <input type="number" id="Pregnancies" name="Pregnancies" required>
+            </div>
+            <div class="form-row">
+                <label for="Glucose">Glucose:</label>
+                <input type="number" id="Glucose" name="Glucose" required>
+            </div>
+            <div class="form-row">
+                <label for="BloodPressure">Blood Pressure:</label>
+                <input type="number" id="BloodPressure" name="BloodPressure" required>
+            </div>
+            <div class="form-row">
+                <label for="SkinThickness">Skin Thickness:</label>
+                <input type="number" id="SkinThickness" name="SkinThickness" required>
+            </div>
+            <div class="form-row">
+                <label for="Insulin">Insulin:</label>
+                <input type="number" id="Insulin" name="Insulin" required>
+            </div>
+            <div class="form-row">
+                <label for="BMI">BMI:</label>
+                <input type="number" step="0.1" id="BMI" name="BMI" required>
+            </div>
+            <div class="form-row">
+                <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+                <input type="number" step="0.001" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required>
+            </div>
+            <div class="form-row">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" required>
+            </div>
+            <button type="submit" class="predict-button">Predict</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="messages">
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </section>
+    <section id="about-us" class="footer-info">
+        <div class="footer-section">
+            <h2>About Us</h2>
+            <p>
+                This app helps predict the likelihood of diabetes based on several health indicators.
+                It utilizes a machine learning model for predictions. <br>
+                <strong>Note:</strong> This is not a substitute for medical advice. Please consult a healthcare provider for a professional diagnosis.
+            </p>
+        </div>
+    </section>
+
+    <section id="help" class="footer-info">
+        <div class="footer-section">
+            <h2>Help</h2>
+            <p>
+                Need assistance? Ensure all fields are filled before submission.
+                If you encounter issues, contact us at 
+                <a href="mailto:support@example.com">luckysheoran79@gmail.com</a>.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Diabetes Prediction App. All rights reserved.</p>
+    </footer>
+</body>
+</html>  
