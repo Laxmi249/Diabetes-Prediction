@@ -487,3 +487,8 @@ header a:hover {
 h1 {
     margin: 0; /* Remove default margin */
 }   
+body {
+    background-image: url('/static/images/Back.png');
+    background-size: cover;
+    background-position: center;
+}
