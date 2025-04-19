@@ -3,9 +3,8 @@ import joblib
 import numpy as np
 import random
 
-# Initialize the Flask app
 app = Flask(__name__)
-app.secret_key = '7d4b8c9371c0c46c1d1f56f95c07a1d7'  # Replace with your generated key
+app.secret_key = 'your_strong_secret_key'
 
 # Load the trained model and scaler
 try:

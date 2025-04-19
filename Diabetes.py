@@ -9,6 +9,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (accuracy_score, confusion_matrix, classification_report,
                              roc_auc_score, ConfusionMatrixDisplay, roc_curve)
 
+import matplotlib
+matplotlib.use("Qt5Agg")  # Forces non-GUI backend that doesn’t need tkinter
 # Load the dataset
 data_path = r'c:\Program Files\diabetes.csv'
 try:
@@ -106,6 +108,7 @@ ConfusionMatrixDisplay(confusion_matrix=cm).plot(cmap='Blues')
 plt.title('Confusion Matrix Visualization')
 plt.show()
 
+
 # ROC Curve
 fpr, tpr, thresholds = roc_curve(y_test, best_model.predict_proba(x_test)[:, 1])
 plt.figure(figsize=(8, 6))
@@ -117,6 +120,7 @@ plt.ylabel('True Positive Rate')
 plt.legend()
 plt.show()
 
+
 # Feature Importance Analysis
 importance = best_model.coef_[0]
 feature_importance = pd.DataFrame({'Feature': x.columns, 'Importance': importance})
@@ -127,6 +131,7 @@ sns.barplot(x='Importance', y='Feature', data=feature_importance)
 plt.title('Feature Importance')
 plt.show()
 
+
 # Correlation heatmap
 plt.figure(figsize=(10, 8))
 correlation_matrix = data.corr()
@@ -134,10 +139,12 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm')
 plt.title('Feature Correlation Heatmap')
 plt.show()
 
+
 # Pair plot
 sns.pairplot(data, hue='Outcome', diag_kind='kde')
 plt.title('Pair Plot of Features')
 plt.show()
+
 
 # Save the model
 joblib.dump(best_model, 'diabetes_logistic_model.pkl')
