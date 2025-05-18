@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prevention</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('/static/images/Back2.jpeg'); /* Path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-color: #f4f4f4; /* Fallback color */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.9); /* White background with some transparency */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 15px 0;
+            width: 80%;
+            max-width: 600px; /* Limit the width on larger screens */
+        }
+
+        h2 {
+            color: #007bff; /* Color for section headings */
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-home a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .back-home a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                width: 95%; /* Full width on smaller screens */
+            }
+
+            .back-home a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Diabetes Prevention</h1>
+
+    <section>
+        <h2><i class="fas fa-weight"></i> Maintain a Healthy Weight</h2>
+        <p>Maintain a healthy weight through a balanced diet and regular physical activity.</p>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-apple-alt"></i> Eat a Variety of Foods</h2>
+        <p>Eat a variety of foods, focusing on whole grains, fruits, vegetables, and lean proteins.</p>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-coffee"></i> Limit Sugary Drinks</h2>
+        <p>Limit sugary drinks and avoid excessive sugar intake.</p>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-running"></i> Stay Physically Active</h2>
+        <p>Stay physically active with at least 150 minutes of moderate aerobic exercise per week.</p>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-blood"></i> Monitor Blood Sugar Levels</h2>
+        <p>Regularly monitor your blood sugar levels if you're at risk.</p>
+    </section>
+
+    <section>
+        <h2><i class="fas fa-user-md"></i> Consult a Healthcare Provider</h2>
+        <p>Consult with a healthcare provider for personalized advice.</p>
+    </section>
+
+    <div class="back-home">
+        <a href="{{ url_for('symptoms') }}">Back to Symptoms</a>
+    </div>
+</body>
+</html>
